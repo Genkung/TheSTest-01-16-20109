@@ -42,22 +42,22 @@
               <p>{{item.product.name}}</p>
             </ion-col>
             <ion-col col-2 text-right>
-              <p>{{item.amount}}</p>
+              <p>{{item.amount|number}}</p>
             </ion-col>
             <ion-col col-3 text-right>
-              <p>{{item.product.price}}</p>
+              <p>{{item.product.price|number}}</p>
             </ion-col>
             <ion-col col-3 text-right>
-              <p>{{item.product.price*item.amount}}</p>
+              <p>{{item.product.price*item.amount|number}}</p>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
     </ion-list>
     <div text-right padding-right>
-      <p>ยอดรวม : {{sum}}</p>
-      <p>ส่วนลด : {{disCount}}</p>
-      <p>ยอดรวมที่ต้องจ่าย : {{sumByDisCount}}</p>
+      <p>ยอดรวม : {{sum|number}}</p>
+      <p>ส่วนลด : {{disCount|number}}</p>
+      <p>ยอดรวมที่ต้องจ่าย : {{sumByDisCount|number}}</p>
     </div>
   </div>
 </ion-content>

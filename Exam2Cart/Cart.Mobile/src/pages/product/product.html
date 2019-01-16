@@ -51,7 +51,7 @@
               <p>{{item.name}}</p>
             </ion-col>
             <ion-col col-3 text-right>
-              <p>{{item.price}}</p>
+              <p>{{item.price|number}}</p>
             </ion-col>
             <ion-col col-3 text-right>
               <button ion-button small color="secondary" (click)="ShowAddProductToCartDialog(item.id)">
