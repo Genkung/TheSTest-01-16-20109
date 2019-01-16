@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoanSummaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>loanSummary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">กรุณาจำนวนเงินต้น</ion-label>
+      <ion-input type="number" [(ngModel)]="debtAmount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">กรุณาจำนวนปี</ion-label>
+      <ion-input type="number" [(ngModel)]="totalYears"></ion-input>
+    </ion-item>
+    <div padding>
+        <button block ion-button (click)="getLoanDetail()">ตกลง</button>
+    </div>
+    <div padding>
+        <div *ngFor="let item of loadSummary; let i = index">
+            <p>ปีที่ {{i+1}} : คงค้าง {{item.debtAmount}} ดอกเบี้ย {{item.IncreaseAmount}} ยอดที่ต้องชำระ {{item.totalDebtAmount}}</p>
+          </div>
+    </div>
+  </ion-list>
+</ion-content>

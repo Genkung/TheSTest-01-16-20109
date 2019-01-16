@@ -7,8 +7,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  increasePercentage: any;
 
+  constructor(public navCtrl: NavController) { }
+
+  goCalculator() {
+    this.navCtrl.push("LoanSummaryPage", {
+      param: this.increasePercentage
+    });
   }
 
 }
