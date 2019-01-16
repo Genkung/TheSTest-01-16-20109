@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the CartPage page.
@@ -40,9 +40,9 @@ export class CartPage {
           var discountCount = Math.floor(this.productInCarts[i].amount / 4);
           var discount = discountCount * this.productInCarts[i].product.price;
           this.disCount += discount;
-          this.sumByDisCount = sumOfProduct - discount;
         }
       }
+      this.sumByDisCount = this.sum - this.disCount;
     });
   }
 
