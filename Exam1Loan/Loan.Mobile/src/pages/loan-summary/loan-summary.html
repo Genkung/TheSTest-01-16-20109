@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>loanSummary</ion-title>
+    <ion-title>โปรแกรมคำนวณเงินกู้</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,9 @@
 
 <ion-content>
   <ion-list>
+    <ion-item>
+      <ion-label>ดอกเบี้ย : {{increasePercentage|number}} %</ion-label>
+    </ion-item>
     <ion-item>
       <ion-label color="primary">กรุณาจำนวนเงินต้น</ion-label>
       <ion-input type="number" [(ngModel)]="debtAmount"></ion-input>
@@ -24,12 +27,15 @@
       <ion-input type="number" [(ngModel)]="totalYears"></ion-input>
     </ion-item>
     <div padding>
-        <button block ion-button (click)="getLoanDetail()">ตกลง</button>
+      <button block ion-button (click)="getLoanDetail()">ตกลง</button>
     </div>
-    <div padding>
-        <div *ngFor="let item of loadSummary; let i = index">
-            <p>ปีที่ {{i+1}} : คงค้าง {{item.debtAmount}} ดอกเบี้ย {{item.IncreaseAmount}} ยอดที่ต้องชำระ {{item.totalDebtAmount}}</p>
-          </div>
-    </div>
+    <ion-item>
+      <div *ngFor="let item of loadSummary; let i = index">
+        <p>ปีที่ {{i+1}} : คงค้าง {{item.debtAmount| number}}</p>
+        <p>ดอกเบี้ย {{item.increaseAmount| number}}</p>
+        <label>ยอดที่ต้องชำระ {{item.totalDebtAmount| number}}</label>
+        <hr/>
+      </div>
+    </ion-item>
   </ion-list>
 </ion-content>
