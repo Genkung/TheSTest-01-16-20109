@@ -10,7 +10,7 @@ namespace Cart.Api.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        public static List<Product> Products= new List<Product>();
+        public static List<Product> Products = new List<Product>();
         public static List<CartProduct> CartProducts = new List<CartProduct>();
 
         [HttpGet]
@@ -36,14 +36,23 @@ namespace Cart.Api.Controllers
         public void AddProductToCart(string productId, int amount)
         {
             var product = Products.FirstOrDefault(it => it.id == productId);
-            var id = Guid.NewGuid().ToString();
-            var cartProduct = new CartProduct
+
+            if (CartProducts.Any(it => it.Product.id == productId))
             {
-                id = id,
-                Amount = amount,
-                Product = product
-            };
-            CartProducts.Add(cartProduct);
+                var item = CartProducts.FirstOrDefault(it => it.Product.id == productId);
+                item.Amount += amount;
+            }
+            else
+            {
+                var id = Guid.NewGuid().ToString();
+                var cartProduct = new CartProduct
+                {
+                    id = id,
+                    Amount = amount,
+                    Product = product
+                };
+                CartProducts.Add(cartProduct);
+            }
         }
     }
 
@@ -57,7 +66,7 @@ namespace Cart.Api.Controllers
     public class CartProduct
     {
         public string id { get; set; }
-        public Product Product{ get; set; }
+        public Product Product { get; set; }
         public int Amount { get; set; }
     }
 }

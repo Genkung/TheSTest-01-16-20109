@@ -14,5 +14,50 @@
 
 
 <ion-content padding>
-
+  <div>
+    <h4 text-center>ตะกร้าสินค้า</h4>
+    <ion-list>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <label>ชื่อ</label>
+            </ion-col>
+            <ion-col col-2 text-right>
+              <label>จำนวน</label>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <label>ราคา</label>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <label>ยอดรวม</label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item *ngFor="let item of productInCarts; let i = index">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <p>{{item.product.name}}</p>
+            </ion-col>
+            <ion-col col-2 text-right>
+              <p>{{item.amount}}</p>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <p>{{item.product.price}}</p>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <p>{{item.product.price*item.amount}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+    <div text-right padding-right>
+      <p>ยอดรวม : {{sum}}</p>
+      <p>ส่วนลด : {{disCount}}</p>
+      <p>ยอดรวมที่ต้องจ่าย : {{sumByDisCount}}</p>
+    </div>
+  </div>
 </ion-content>
