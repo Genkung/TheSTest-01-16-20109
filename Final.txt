@@ -2,10 +2,17 @@
 	- Api in Loan.Api folder
 	- Mobile in Loan.Mobile folder
 	- Test in Loan.Test folder
+	
+	(APP: 10, API: 8, TEST: 5) Total 23
+	
 2. Exam 2 in folder Exam2Cart
 	- Api in Cart.Api folder
 	- Mobile in Cart.Mobile folder
 	- Test in Cart.Test
 
+	(APP: 25, API: 18, TEST: 9) Total 52
+	
+	Summary 75
+	
 Mobile project implement by ionic 3
 Exam 2 : Api project use static value to store all document, if we restart Api project all document will removed.
